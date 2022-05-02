@@ -5,6 +5,7 @@ export const { globalCss, styled } = createStitches({
     colors: {
       brand: '#8257E5',
       brandHover: '#996DFF',
+      textOnBrandColor: '#FFFFFF',
       surfacePrimary: '#18181B',
       surfaceSecondary: '#27272A',
       surfaceSecondaryHover: '#3F3F46',
@@ -18,6 +19,10 @@ export const { globalCss, styled } = createStitches({
 
     fonts: {
       default: 'Inter, sans-serif;',
+    },
+
+    radii: {
+      pill: '9999px',
     },
   },
 });
