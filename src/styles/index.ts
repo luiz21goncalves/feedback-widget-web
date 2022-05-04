@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
 
-export const { globalCss, styled } = createStitches({
+export const { globalCss, styled, keyframes } = createStitches({
   theme: {
     colors: {
       brand: '#8257E5',
@@ -24,5 +24,8 @@ export const { globalCss, styled } = createStitches({
     radii: {
       pill: '9999px',
     },
+  },
+  media: {
+    tablet: '(min-width: 768px)',
   },
 });

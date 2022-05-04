@@ -20,4 +20,11 @@ export const globalStyles = globalCss({
   body: {
     backgroundColor: '$background',
   },
+
+  button: {
+    background: 'transparent',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+  },
 });

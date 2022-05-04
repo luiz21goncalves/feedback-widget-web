@@ -1,13 +1,16 @@
 import { ChatTeardropDots } from 'phosphor-react';
 import * as Popover from '@radix-ui/react-popover';
 
+import { WidgetForm } from '../WidgetForm';
 import * as S from './styles';
 
 export function Widget() {
   return (
     <Popover.Root>
       <S.Container>
-        <S.Content>Hello world</S.Content>
+        <S.Content side="top">
+          <WidgetForm />
+        </S.Content>
 
         <S.Button>
           <ChatTeardropDots size={24} />

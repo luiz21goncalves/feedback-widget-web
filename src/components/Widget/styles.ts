@@ -6,15 +6,19 @@ export const Container = styled('div', {
   position: 'absolute',
   top: 'auto',
   left: 'auto',
-  right: 40,
-  bottom: 40,
+  right: '1rem',
+  bottom: '1rem',
+  '@tablet': {
+    right: '2rem',
+    bottom: '2rem',
+  },
 });
 
 export const Button = styled(Popover.Trigger, {
   background: '$brand',
   border: 'none',
   borderRadius: '$pill',
-  height: 48,
+  height: '3rem',
   padding: '0 12px',
   color: '$textOnBrandColor',
   display: 'flex',
@@ -23,13 +27,20 @@ export const Button = styled(Popover.Trigger, {
 
   '&:hover span': {
     maxWidth: '200px',
-    marginLeft: '8px',
+    marginLeft: '0.5rem',
+  },
+
+  '&:focus': {
+    outlineWidth: '2px',
+    outlineStyle: 'solid',
+    outlineColor: '$brandHover',
+    outlineOffset: '2px',
   },
 });
 
 export const Label = styled('span', {
-  fontSize: '16px',
-  lineHeight: '24px',
+  fontSize: '1rem',
+  lineHeight: '1.5rem',
   fontWeight: 500,
   maxWidth: 0,
   overflow: 'hidden',
