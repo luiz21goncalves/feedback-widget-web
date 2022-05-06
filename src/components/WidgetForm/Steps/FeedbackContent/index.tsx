@@ -49,7 +49,7 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
 
       <S.Content onSubmit={handleSubmitFeedback}>
         <textarea
-          placeholder="Conte com detalhes o que está acontecendo..."
+          placeholder={feedbackTypeInfo.placeholder}
           value={comment}
           onChange={(event) => setComment(event.target.value)}
         />
