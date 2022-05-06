@@ -6,6 +6,8 @@ import { FEEDBACK_TYPES } from '../../../../constants';
 import { ScreenshotButton } from '../../ScreenshotButton';
 import { FeedbackHeader } from '../FeedbackHeader';
 import { FeedbackType } from '../FeedbackTypeStep';
+import { api } from '../../../../lib/api';
+import { Loading } from '../../../Loading';
 import * as S from './styles';
 
 type FeedbackContentStepProps = {
@@ -20,13 +22,16 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
 
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState('');
+  const [isSenddingFeedback, setIsSenddingFeedback] = useState(false);
 
-  function handleSubmitFeedback(event: FormEvent) {
+  async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
+    setIsSenddingFeedback(true);
 
-    console.log({
-      screenshot,
+    await api.post('/feedbacks', {
+      type: feedbackType,
       comment,
+      screenshot,
     });
 
     onFeedbackSent(true);
@@ -59,8 +64,11 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
             screenshot={screenshot}
             onScreenshotTook={setScreenshot}
           />
-          <S.ButtonSubmit type="submit" disabled={comment.length === 0}>
-            Enviar feedback
+          <S.ButtonSubmit
+            type="submit"
+            disabled={comment.length === 0 || isSenddingFeedback}
+          >
+            {isSenddingFeedback ? <Loading /> : 'Enviar feedback'}
           </S.ButtonSubmit>
         </S.Footer>
       </S.Content>
